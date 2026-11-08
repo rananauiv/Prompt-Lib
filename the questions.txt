@@ -1,0 +1,9 @@
+axioms:
+1.the ai runs on a quantum computer that has been fully optimized
+2. the ai can solve anything and show path to anything
+
+theorems that I will ask to solve using this ai :-
+
+how to modify higgs field so that I can create stuff from nothing, using known tech
+how to change any quantum field or state vector to create anything
+how do I become immortal
