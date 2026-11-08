@@ -1,0 +1,223 @@
+GAME TITLE: Obol of Olympus (working title)
+
+PITCH
+Build a complete, playable top-down action RPG in the style of classic Zelda, with a Greek-mythology setting. The world is made of 4 zones connected by waterways. Each zone is an open-ended labyrinth of paths, secrets, villages, caves, and one underground boss dungeon. The core loop is: explore, find treasure and lore, collect coins, upgrade gear, beat the boss, sail to the next zone.
+
+PRIORITY RULE
+Build a fully playable vertical slice of Zone 1 first (movement, combat, one village, one cave, one boss dungeon, chests, lorebooks, coins, gear upgrades, save system). Structure the code so Zones 2-4 can be added as data-driven zone configs (tilesets, enemy tables, loot tables, boss) without rewriting systems. Keep the code modular: separate files/modules for player, combat, enemies, items, zones, UI, save.
+
+CAMERA AND CONTROLS
+- Top-down view, smooth camera follow, minimap in the corner and a full map screen that fills in as the player explores.
+- Keyboard + mouse and touch/gamepad support. WASD/arrows move, mouse or arrow keys aim, attack, dodge, parry, time-slow, interact, mount, inventory, map.
+
+PLAYER
+- Appearance: the head is a black silhouette. The body is never visible; the player always wears a cloak. Helmets are cosmetic and visible: Spartan helmet, Priest Kavmika, and the Rogue's hood. Cloak and helmet colors are customizable.
+- Optional offhand shield for any class (used for blocking and parrying).
+- Classes (chosen at start, with a weapon switchable at any time):
+  1. Warrior: sword (balanced), axe (slow, heavy, breaks shields), club (stuns).
+  2. Rogue: bow (ranged, charge shot), dual daggers (fast combo, backstab bonus), slingshot (cheap ranged, can hit switches and break pots).
+  3. Mage: spear (reach melee), sorcery (quick bolt shots), air spirits (slow homing bolts).
+- Player-only abilities: dodge roll with brief invulnerability, parry (tight timing window that staggers enemies and reflects projectiles), and time-slow (drains a meter that refills over time). Enemies and bosses never use these.
+- Stats: health (hearts), stamina, a time-slow meter. Death respawns at the last shrine and keeps the coins collected, but drops a small share of them at the spot of death to recover.
+
+MOUNTS
+- Boar (charges through breakable walls), wolf (fastest, can track hidden treasure scent), horse (balanced and carries extra loot).
+- Mounts can only be summoned above ground. They are automatically dismissed in caves and dungeons.
+
+WATERWAYS AND BOATS
+- Waterways separate all 4 zones. The player needs a boat to travel between zones.
+- Docks in each zone act as fast-travel hubs once discovered. There are small island secrets, sea chests, and a few sea enemies along the routes.
+
+WORLD STRUCTURE (applies to every zone)
+- Each zone is an open-ended labyrinth: branching paths, loops, shortcuts, gated areas, and hidden routes, not a linear corridor. Zones are generated from hand-authored room chunks plus a seeded layout, so no two playthroughs feel identical.
+- Every zone contains: 1 main village, 3-5 gathering caves (separate cave subzones), 1 boss dungeon (underground, separate from caves), wildlife, enemy camps, shrines, and many secrets.
+- Boss dungeons: entered only through a distinct underground entrance that is locked until the player has found the zone's key item. All dungeon enemies are ELEMENTAL SKELETONS that match the zone's element (the same skeleton design in different elemental variants). Dungeons have puzzles, switches, mini-bosses, and a final boss room.
+
+ZONES
+
+Zone 1 - Cernun Woods
+- Biome: coniferous forest. Element: EARTH.
+- Enemies: satyrs, centaurs. Wildlife: deer, bears.
+- Village: Greek-themed (white stone, columns, olive trees, an agora).
+- Boss: Medusa, in an underground dungeon full of earth skeletons. Mechanic: line-of-sight gaze attacks, so the player must use pillars as cover and the parry/reflect.
+
+Zone 2 - Galgen's Sands
+- Biome: desert. Element: FIRE.
+- Enemies: Pandos (not pandas; they look like faun-like trickster nomads) and Myrmikes (ant-people warriors). Wildlife: camels, rattlesnakes.
+- Village: Persia-themed (domes, bazaars, tiled arches).
+- Boss: Emperor Nero Claudius Divi Claudius Caesar Augustus Germanicus, in an underground dungeon of fire skeletons.
+
+Zone 3 - Frosthavens
+- Biome: icy mountains. The map spirals inward toward a central peak, and elevation is communicated visually (layered cliffs, shading, stairs, ramps, bridges).
+- Enemies: Telchynes, Cyclopes. Wildlife: wolves, yaks.
+- Village: Viking-looking, but inhabited by Greek Laestrygonians (giant, longboat-and-fur style).
+- Boss: the Great Manticore of Frost, in an underground dungeon of ice skeletons. Element: ICE (slippery floors, freezing).
+
+Zone 4 - The Ruins of Olympus
+- Biome: volcanic ground, a sky flooded with ghosts.
+- Enemies: sirens, Automatons of Hermes. Wildlife: hellhounds, empusai.
+- Village: Othrys City, capital of the Titan regime, built above the burning wasteland of Olympus.
+- Boss: Hades, in an underground dungeon of death-element skeletons. Element: DEATH.
+
+GATHERING (inside caves only)
+- Gathering spots only appear after the player enters a separate cave subzone. Each activity has ONE unique minigame:
+  - Fishing: timing/reaction minigame.
+  - Mining: rhythm or pattern-strike minigame.
+  - Hunting: stealth-and-aim minigame.
+  - Cooking: ingredient-combination minigame.
+- Results feed crafting, healing food buffs, and upgrade materials.
+
+MAKING EXPLORATION FUN (important, do not skip)
+The levels must not feel repetitive. Implement all of these:
+1. Treasure chests in 4 visible tiers (wood, bronze, silver, gold) with different art and sound. Better tiers are hidden behind puzzles, secret walls, boss shortcuts, or mount-only paths. Some chests are guarded by mini-bosses or elite enemy camps.
+2. Gear tiers, from lowest to highest: Worn, Bronze, Iron, Heroic, Mythic. Each tier has a distinct look and stat bonus. Each zone drops its own themed gear set (earth, fire, ice, death), and the higher tiers appear mainly in the later zones and in hidden places.
+3. Coins: collectible currency called Obols. Obols come from enemies, pots, hidden spots, chests, and gathering. Rare Gold Drachmae are hidden coins that only drop in secrets. Each zone has a fixed number of hidden collectible coins that the player can track.
+4. Gear upgrades: at each village's smith, the player spends Obols plus gathered materials to upgrade weapons, shield, cloak, and helmet through 5 levels each. Upgrades change stats and slightly change the item's visuals.
+5. Lorebooks: collectible books, tablets, and scrolls scattered across each zone (at least 12 per zone), each with 2-4 short paragraphs of original lore about the zone's myths and the Titan regime. They are stored in a Journal/Codex with a completion counter, and collecting full sets unlocks rewards (a cosmetic, a gear piece, or a map reveal).
+6. Variety in the labyrinth: each zone has landmark locations (a ruined temple, a shipwreck, a giant statue, a hidden grove), environmental hazards fitted to its biome, wandering elite enemies, NPC side quests, secret rooms with their own tiny puzzles, breakable walls, one-way shortcuts, and weather and day/night changes.
+7. Discovery rewards: shrines that restore health and set the respawn point, map fragments that reveal nearby secrets, and key items that gate later areas (Metroidvania-style backtracking with new abilities).
+8. Every cave and dungeon has at least one unique room layout and a different puzzle, so that no two feel the same. Use a set of at least 8 puzzle types (pressure plates, mirror/light beams, elemental switches, push blocks, timed doors, sequence tiles, parry-reflect targets, and boss-weakness puzzles).
+
+UI
+- Hearts and stamina bar, time-slow meter, Obol counter, equipped weapon and offhand, minimap.
+- Inventory screen with gear slots and tier colors, upgrade screen at smiths, Journal/Codex for lorebooks, full map with discovered chests and secrets marked.
+
+AUDIO/VISUAL
+- Distinct color palette per zone, simple animations, screen shake and hit-pause on impacts, distinct sound cues per chest tier, a coin pickup sound, and a lore pickup sound.
+
+SAVE SYSTEM
+- Autosave at shrines and on zone changes. Save the inventory, gear levels, collected lore and coins, discovered map, and boss kills.
+
+DELIVERABLE
+A complete, working game with all the systems above, following the build order below. If something cannot fit in one response, finish the vertical slice first and tell me what remains.
+
+BUILD ORDER
+1. Player controller, camera, and combat for all 3 classes.
+2. Zone 1 map with an open labyrinth layout.
+3. Enemies and wildlife for Zone 1.
+4. Chests, coins, lorebooks, gear tiers, the Codex.
+5. Village, smith, and upgrade system.
+6. Gathering cave with one minigame.
+7. Boss dungeon with skeleton enemies and Medusa.
+8. Mounts, boat, and the other zones as data-driven configs.
+
+WORLD ATLAS (follow these layouts; marker positions are [x,y] on a 100x100 grid per zone)
+
+WORLD MAP
+The four zones sit in a 2x2 arrangement, separated by a cross-shaped waterway (a north-south channel and an east-west channel meeting at a central whirlpool, the "Charybdis Eye"). Each zone has docks on its water-facing edges.
+  NW = Zone 1 Cernun Woods     NE = Zone 2 Galgen's Sands
+  SW = Zone 4 Ruins of Olympus SE = Zone 3 Frosthavens
+Boat route order: Zone 1 -> Zone 2 (east channel) -> Zone 3 (south channel) -> Zone 4 (west channel).
+Sea markers: island chests, 4 shipwrecks (one lorebook each), sea-serpent elite, the Charybdis Eye whirlpool (needs the Zone 3 boat upgrade).
+
+MAP LEGEND (shared symbols; hidden markers appear on the in-game map only once discovered)
+V Village   D Dock   S Shrine (respawn)   C Gathering cave   B Boss dungeon entrance
+K Key item   E Elite enemy camp   L Lorebook cluster   T Treasure (tier noted)   P Puzzle landmark
+H Hazard zone   M Mount-only/secret path   W Wildlife area   X Hidden secret room
+
+------------------------------------------------------------
+ZONE 1 - CERNUN WOODS (earth) - layout: branching forest labyrinth, hub-and-spoke around a central fallen statue
+Start: Pilgrim's Clearing. Main routes fan out to 4 quadrants; paths loop back through the hub.
+
+1  S  Pilgrim's Clearing [60,90] - starting shrine, tutorial area, wood chests
+2  V  Eleusa Village [75,68] - Greek village: agora, smith, shop, stable, quest board
+3  D  Harbor of Thessa [92,88] - boat to Zone 2
+4  P  Fallen Titan Statue [45,45] - central hub; unlocks shortcut tunnels (opened by switches found in each quadrant)
+5  C  Mossmaw Cave [30,70] - fishing
+6  C  Hollow Antler Cave [20,40] - hunting
+7  C  Pitch-Root Mine [55,35] - mining
+8  C  Hearthroot Grotto [40,55] - cooking
+9  E  Satyr Revel Camp [65,40] - elite satyr fight, drops bronze chest + shop discount token
+10 E  Centaur Hold [25,25] - centaur chieftain mini-boss, drops the Serpent-Eye Key (K)
+11 W  Deer Glade [35,80] - deer herds, hunting bonus
+12 W  Bear Den [15,60] - elite bear, silver chest behind it
+13 L  Standing Stones of Cernun [80,25] - 3 lorebooks, sequence puzzle
+14 M  Boar Run [90,50] - boar-only breakable wall route leading to a gold chest
+15 X  Hollow Oak Chamber [10,85] - secret room, Drachma
+16 T  Root Vault [70,10] - silver chest, needs the slingshot (hit a high switch)
+17 B  Gorgoneion Depths [50,10] - boss dungeon (Medusa), hidden in a ruined temple, needs the Serpent-Eye Key
+18 H  Thornfog Hollow [30,10] - poison fog area, shortcut to the dungeon but slow
+
+Critical path: 1 -> 2 -> 4 -> 10 (key) -> 17. Optional spokes: caves 5-8, camps 9 and 12, secrets 14-16.
+
+------------------------------------------------------------
+ZONE 2 - GALGEN'S SANDS (fire) - layout: dune maze with shifting sandstorm walls around a central oasis ring
+Start: Dock Landing on the west edge. Sandstorms close certain corridors on a timer, so routes change.
+
+1  D  Salt Landing [5,55] - arrival dock from Zone 1
+2  S  Camel Rest Shrine [15,55] - first shrine
+3  V  Parsa Oasis [50,50] - Persia-themed village on the central oasis: bazaar, smith, tilework palace gate
+4  C  Mirage Well [30,30] - fishing (underground oasis pool)
+5  C  Scorpion Quarry [75,25] - mining
+6  C  Dune Hunter's Burrow [20,75] - hunting
+7  C  Saffron Kitchens [60,70] - cooking
+8  E  Myrmike Anthill Citadel [80,60] - elite hive, Myrmike Queen mini-boss, drops the Imperial Seal (K)
+9  E  Pandos Caravan [35,50] - roaming elite caravan, trade and fight options
+10 W  Snake Flats [45,85] - rattlesnakes, hazard when walking in the dark
+11 W  Camel Wadi [65,15] - camel herds
+12 H  Quicksand Basin [55,35] - sinking sand, must be crossed with the boar or a mage air step
+13 L  Sunken Library [25,15] - 3 lorebooks, light-beam mirror puzzle
+14 P  Obelisk Ring [85,40] - align 4 obelisks to open a gold chest
+15 M  Dune Tunnel [90,80] - wolf-only scent path to a hidden treasure
+16 X  Buried Treasury [10,90] - secret room, Drachma
+17 D  Dune Port South [60,95] - boat to Zone 3
+18 B  Domus Aurea Crypt [50,5] - Nero's dungeon entrance, a buried palace staircase, needs the Imperial Seal
+
+Critical path: 1 -> 3 -> 8 (Seal) -> 18, then 17 to sail on.
+
+------------------------------------------------------------
+ZONE 3 - FROSTHAVENS (ice) - layout: SPIRAL; five concentric elevation rings climbing toward the center peak
+Ring 1 = outer coast (elevation 0) ... Ring 5 = summit (elevation 5). Ramps, rope bridges, and stairs connect rings at fixed gaps, and each ring has one blocked gap so the player must walk the long way around the spiral. Cliff edges show elevation shading and shadows.
+
+1  D  Frostwake Harbor [90,10] - arrival dock (north-east, Ring 1) from Zone 2
+2  S  Ring 1 Beacon Shrine [80,20] - first shrine
+3  V  Laestrygon Longhall [65,35] - Ring 2; Viking-style village with Greek giants: smith, shop, longhouse
+4  C  Yak-Hide Cave [85,50] - Ring 1, cooking
+5  C  Frozen Lake Hollow [60,60] - Ring 2, fishing (ice-hole minigame)
+6  C  Rimeglass Mine [40,40] - Ring 3, mining
+7  C  Wolfpack Den [30,65] - Ring 3, hunting
+8  E  Telchine Forge [55,45] - Ring 3, elite smiths, drops the Frost-Forged Key (K)
+9  E  Cyclops Watchtower [45,55] - Ring 4, cyclops mini-boss
+10 W  Yak Meadow [75,70] - Ring 1/2, yak herds
+11 W  Wolf Ridge [25,30] - Ring 3, wolf packs
+12 H  Whiteout Pass [35,50] - Ring 4, visibility drops, needs a torch or a mount
+13 L  Hall of Frozen Kings [50,35] - 3 lorebooks, slide-ice puzzle
+14 T  Avalanche Cache [15,50] - gold chest, triggered by the sling or a bolt hitting an ice block
+15 M  Ice-Boar Slope [70,85] - boar-only slide shortcut between Ring 1 and 3
+16 X  Frozen Shipwreck [95,90] - secret room, Drachma
+17 D  Southern Cove [50,95] - boat to Zone 4
+18 B  Manticore's Rime Crypt [50,50] - Ring 5 summit, boss dungeon, needs the Frost-Forged Key
+
+Critical path: 1 -> 3 -> 8 (key) -> climb rings 3, 4 -> 18. The spiral means every ring reveals a view of the next goal (the peak).
+
+------------------------------------------------------------
+ZONE 4 - THE RUINS OF OLYMPUS (death) - layout: vertical canyon labyrinth; a burning wasteland floor with floating ruin islands connected by ghost bridges, and the Titan city overhead
+Two levels: the Ghost Skyline (upper, walkable platforms and ghost bridges) and the Burning Wasteland (lower, lava fields). The boss dungeon sits at the bottom of the canyon.
+
+1  D  Charon's Quay [90,50] - arrival dock from Zone 3
+2  S  Ember Shrine [80,50] - first shrine
+3  V  Othrys City [50,20] - capital of the Titan regime, built above the burning wasteland; smith, shops, the Titan faction quest line (safe area)
+4  C  Ghost Fisher's Pool [70,70] - fishing
+5  C  Obsidian Seam [20,45] - mining
+6  C  Hellhound Kennel Cave [30,75] - hunting
+7  C  Ambrosia Kitchen [60,35] - cooking
+8  E  Siren Rock [15,25] - elite sirens, mini-boss, drops the Styx Key (K)
+9  E  Hermes Foundry [75,25] - elite automaton factory
+10 W  Hellhound Fields [40,65] - hellhound packs
+11 W  Empusai Roost [85,80] - roaming empusai at night
+12 H  Lava Flats [50,60] - lava fields, need the Ghost Bridge ability or the horse's fire-resist hooves
+13 L  Titan Archive [35,10] - 3 lorebooks, sequence puzzle
+14 P  Soul Scale [10,70] - puzzle that rewards a gold chest
+15 M  Cerberus Stair [95,15] - hidden stairs, hellhound-only access
+16 X  Forgotten Pantheon [60,90] - secret room, Drachma
+17 T  Olympian Armory [65,10] - Mythic-tier gear chest, needs 3 sigils
+18 B  The Gates of Hades [50,95] - bottom of the canyon, boss dungeon, needs the Styx Key
+
+Critical path: 1 -> 3 -> 8 (key) -> descend to 18.
+
+------------------------------------------------------------
+MAP BEHAVIOR (implement)
+- Each zone has an in-game parchment-style map screen with this zone's legend. Locations are hidden until visited or until a map fragment reveals them. Show the player's position as a small cloak-and-silhouette icon.
+- Include a progress counter per zone (lorebooks, treasure by tier, Drachmae, secrets, shrines).
+- Marker colors follow the legend. A dotted line shows the suggested route to the boss for the current zone.
+- Villages and docks are fast-travel points once discovered.
