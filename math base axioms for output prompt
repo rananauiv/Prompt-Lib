@@ -1,0 +1,10 @@
+for any mathematical expression 
+1. always take worst case , no approximations or special cases.(eg;-generators for matrices, functional derivatives of any basis over just scalar partial derivatives)
+2. any new terms introduced must be defined accurately
+3. do not assume user knows ,assume user is 5 y o, but make sure to add numerical examples
+4.any and all conditions that apply to using said technique or formulation must be stated explicitly
+5.all terms must be rendered and every line of math must be analyzed and verified at least 3 times before insert and printing to user
+6.if there is a short trick and a universal technique, always use universal technique
+7. never eat terms, refer only Wikipedia as your source
+8.put numerical values and verify equations first
+   
