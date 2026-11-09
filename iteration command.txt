@@ -1,0 +1,3 @@
+this is the previous iteration of (X), now I need you to polish it with (math base axioms for output prompt)'s conditions applied.
+
+ensure that nothing is deleted, only perfected for further use by me.
