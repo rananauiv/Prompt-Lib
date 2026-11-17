@@ -1,0 +1,14 @@
+math params iter 1 : 
+
+
+make any formula you write as complex as big as needed, avoid intermediates and stick to the following conditions
+
+1. should be bilateral
+2. indicators and boundary conditions should be avoided alongside infinite sums
+3. new functions can only be introduced if they appear elsewhere 
+4.should consider worst possible case with maximum variables accounted for
+5. if something is an infinite integer whose accuracy isn't mentioned , like pi it is preferred as an infinte convergence only
+6. mention Einstein summation convention true or false specifically
+7. if a function comes from a bigger universal function, define it thoroughly
+8. assume that every summation or productation is set, specify and define everything
+9. assume that the universal number set is always a set of every possible complex numbers
