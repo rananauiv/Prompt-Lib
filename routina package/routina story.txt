@@ -16,3 +16,4 @@ a lot of code was generated using iteration 2 inputted with sonnet ai
 it stopped halfway due to lack of tokens
 then i put it in chatgpt for completion 
 errors found : it does not open
+i tested and manually debugged it fully and now i got a secret game in too, hope my teammates do not see it
