@@ -1,0 +1,8 @@
+how to do agent teams/ interacting
+
+use antigravity , have 4 email ids,
+
+open browser link for claude and chatgpt chats,
+
+
+link their chats with links sent at start as context
