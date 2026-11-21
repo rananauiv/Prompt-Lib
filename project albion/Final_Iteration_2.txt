@@ -1,0 +1,366 @@
+# FUNCTIONAL GAME DESIGN DOCUMENT
+## Project: Civilization – Albion and the Four Kingdoms
+**Document Type:** Functional Game Design Document (FGDD)  
+**Genre:** Open-World RPG  
+**Perspective:** Top-Down  
+**World Structure:** Persistent, editable, interconnected open world  
+**Primary Development Kits:**
+- Tiny Toony RTS Kit
+- Moore's RPG Template
+GOAL : MAKE A SKYRIM LIKE GAME
+---
+
+# 1. PROJECT OVERVIEW
+
+## 1.1 Core Concept
+
+Develop a top-down RPG world consisting of four separate continents, each containing one distinct civilization:
+
+1. Albion
+2. Pictland
+3. Gaetland
+4. Ivernia
+
+Each continent possesses its own settlements, geography, points of interest (POIs), environmental features, and regional enemy types.
+
+The world should be designed as a persistent, interconnected environment with exploration as a primary gameplay activity.
+
+## 1.2 Design Requirements
+
+- Top-down camera perspective.
+- Fully editable world and level layouts.
+- Persistent world containing settlements and exploration locations.
+- Four separate continents, each with a distinct geographical identity.
+- Caves, underground locations, rivers, lakes, coastlines, and diving locations.
+- Exploration-oriented POI placement.
+- Region-specific enemy populations.
+- Compatibility with the selected development kits.
+
+# 2. WORLD STRUCTURE
+
+## 2.1 Continents, Civilizations, and Settlements
+
+The world is divided into four separate continents. Each continent contains its own civilization:
+
+- **Albion Continent** — Albion civilization.
+- **Pictland Continent** — Pictland civilization.
+- **Gaetland Continent** — Gaetland civilization.
+- **Ivernia Continent** — Ivernia civilization.
+
+Each continent is a distinct landmass. Their exact dimensions, coastlines, relative positions, and sea routes remain to be established during world layout.
+
+### 2.1.1 Albion Continent
+
+| Settlement | Classification |
+|---|---|
+| Sherwood | Village |
+| Camelot | City |
+
+### 2.1.2 Pictland Continent
+
+| Settlement | Classification |
+|---|---|
+| Lochlan | Village |
+| Edinburgh | Town |
+
+### 2.1.3 Gaetland Continent
+
+| Settlement | Classification |
+|---|---|
+| Hygelac | Town |
+| Jorvik | Village |
+
+### 2.1.4 Ivernia Continent
+
+| Settlement | Classification |
+|---|---|
+| Duabhh Lainn | Town |
+| Sherwood | Village |
+
+**Note:** Sherwood appears in both Albion and Ivernia. Confirm whether these are separate settlements or whether one name should be changed.
+
+## 2.2 World Geography
+
+The world must contain more than traversable land.
+
+Required geographical features:
+
+- Forests and woodlands.
+- Mountains and elevated terrain.
+- Plains and agricultural land.
+- Rivers and streams.
+- Lakes and inland bodies of water.
+- Coastal regions.
+- Islands.
+- Swamps and marshlands.
+- Caves and underground passages.
+- Flooded caves and submerged areas.
+- Diving locations and underwater exploration areas.
+
+Water bodies should serve as geographical features and potential exploration spaces, rather than purely decorative scenery.
+
+Caves and diving locations must be incorporated into the world layout alongside terrestrial exploration locations.
+
+# 3. POINTS OF INTEREST (POIs)
+
+POIs are independently identifiable exploration locations distributed throughout the world.
+
+They should provide geographical landmarks, environmental storytelling, encounters, and opportunities for exploration.
+
+## 3.1 Albion
+
+| POI | Description |
+|---|---|
+| Thieves' Den | Hidden outlaw hideout beneath an abandoned farmhouse. |
+| The Old Watchtower | Ruined stone tower overlooking the King's Road. |
+| Barrow of Kings | Ancient burial mound containing forgotten treasures. |
+| Greenwood Shrine | Druidic shrine deep within Sherwood Forest. |
+| The Witch's Cottage | Isolated hut inhabited by a reclusive hedge witch. |
+| Bandit Crossing | Forest road controlled by highwaymen. |
+| The Gallows | Abandoned execution ground haunted by restless spirits. |
+| Ruins of Old Rome | Roman settlement remains reclaimed by nature. |
+| The Hermit's Cave | Secluded cave occupied by a former knight. |
+| Excalibur's Shrine | Forgotten sanctuary dedicated to Arthur's legendary sword. |
+
+## 3.2 Pictland
+
+| POI | Description |
+|---|---|
+| The Standing Stones | Ancient stone circle used for forgotten rituals. |
+| Frostwatch Tower | Abandoned watchtower overlooking the northern wilderness. |
+| The Giant's Grave | Massive burial site surrounded by mysterious carvings. |
+| Blackwater Cave | Flooded cavern rumoured to contain ancient treasure. |
+| The Wolf's Den | Mountain hideout used by northern raiders. |
+| The Burned Village | Settlement destroyed during an old tribal conflict. |
+| The Seer's Hut | Remote dwelling belonging to a mysterious fortune teller. |
+| The King's Cairn | Stone tomb overlooking a frozen loch. |
+
+## 3.3 Gaetland
+
+| POI | Description |
+|---|---|
+| The Mead Hall | Abandoned feasting hall belonging to an ancient chieftain. |
+| Shipbreaker Cove | Rocky coastline littered with wrecked longships. |
+| The Old Thingstead | Ruined gathering place where northern clans once held assemblies. |
+| The Barrow of Hygelac | Legendary burial mound of an ancient Geatish king. |
+| The Raven's Perch | Wooden watchtower overlooking surrounding farmland. |
+| The Troll Bridge | Ancient stone bridge inhabited by something unfriendly. |
+| The Sunken Longship | Shipwreck buried in a shallow marsh. |
+| The Runestone Field | Field of carved stones bearing forgotten inscriptions. |
+
+## 3.4 Ivernia
+
+| POI | Description |
+|---|---|
+| The Druid's Grove | Sacred woodland clearing used for ancient ceremonies. |
+| The Faerie Mound | Grassy hill concealing an entrance to the Otherworld. |
+| The Black Abbey | Ruined monastery occupied by an isolated religious order. |
+| The King's Prison | Abandoned coastal dungeon carved into the cliffs. |
+| The Crooked Standing Stone | Mysterious monolith said to bring misfortune. |
+| The Witchwood | Forest where travellers frequently lose their way. |
+| The Forgotten Battlefield | Overgrown field containing remains of an ancient army. |
+| The Smuggler's Grotto | Hidden sea cave used by coastal smugglers. |
+
+## 3.5 Cross-Regional POIs
+
+These locations are not exclusively assigned to one civilization. Their geographical placement should be determined during world layout.
+
+| POI | Description |
+|---|---|
+| The Old King's Road | Deteriorating Roman road connecting the kingdoms. |
+| The Pilgrim's Rest | Roadside inn offering shelter to travelling merchants. |
+| The Mercenary Camp | Temporary encampment of sellswords seeking employment. |
+| The Abandoned Mine | Old mine containing valuable ore and something buried deeper. |
+| The Dragon's Nest | Remote mountain hollow with enormous bones scattered around. |
+| The Forgotten Battlefield | Ancient battleground where weapons remain embedded in the earth. |
+| The Ruined Lighthouse | Coastal tower whose beacon mysteriously lights itself. |
+| The Plague Village | Abandoned settlement sealed after a mysterious epidemic. |
+| The Hunter's Lodge | Remote hunting cabin used by trappers and poachers. |
+| The Old Battlefield Chapel | Small ruined church built to honour fallen soldiers. |
+
+# 4. REGIONAL ENEMY DISTRIBUTION
+
+Enemy populations must be distributed according to their associated civilizations.
+
+The following assignments define the initial regional enemy roster.
+
+| Civilization | Enemy Type |
+|---|---|
+| Albion | Goblins |
+| Albion | Stone Golems |
+| Pictland | Roman Wraiths (Skeletons) |
+| Pictland | Dragons |
+| Ivernia | Celtic Púca Elves |
+| Ivernia | Giant Spiders |
+| Gaetland | Nidavellir Dwarves |
+| Gaetland | Giants |
+
+## 4.1 Enemy Distribution Requirements
+
+- Each civilization must have its own regional enemy population.
+- Enemy placement should correspond to geographical features and POIs.
+- Enemy encounters should be distributed throughout the world, not restricted to settlements.
+- Certain enemies may occupy caves, ruins, forests, mountains, burial sites, and other appropriate locations.
+- Cross-regional enemy placement is not assumed and requires separate design approval.
+
+# 5. EXPLORATION AND ENVIRONMENTAL SYSTEMS
+
+## 5.1 Terrestrial Exploration
+
+The world must support exploration of:
+
+- Settlements.
+- Ruins.
+- Forests.
+- Mountains.
+- Burial mounds.
+- Abandoned structures.
+- Roads and crossings.
+- Military encampments.
+- Hidden locations.
+
+## 5.2 Cave System
+
+Caves are a distinct category of explorable geographical locations.
+
+Required functionality:
+
+- Cave entrances integrated into the world map.
+- Traversable cave interiors.
+- Connection between cave entrances and their corresponding interiors.
+- Underground POIs and encounters.
+- Potential underground water systems.
+
+## 5.3 Water and Diving System
+
+Water must be represented as an explorable part of the environment.
+
+Required geographical elements:
+
+- Lakes.
+- Rivers.
+- Coastal waters.
+- Marshes.
+- Flooded caves.
+- Submerged ruins and shipwrecks.
+
+Diving locations must be identifiable and accessible through the world environment.
+
+**Functional requirement:** Water exploration and underwater traversal must be treated as separate requirements from ordinary land movement. The implementation of swimming, diving, underwater interaction, and underwater combat remains to be specified.
+
+# 6. WORLD EDITING REQUIREMENTS
+
+The world must remain editable throughout development.
+
+Required editing capabilities:
+
+1. Add, remove, and reposition settlements.
+2. Add, remove, and reposition POIs.
+3. Modify geographical terrain.
+4. Modify water bodies and coastlines.
+5. Add and modify cave entrances.
+6. Edit cave interiors.
+7. Place and modify enemy populations.
+8. Modify roads and connections between settlements.
+9. Modify the geographical boundaries of civilizations.
+
+The world should use a modular layout that permits individual regions and locations to be modified without requiring reconstruction of the entire world.
+
+# 7. TECHNICAL IMPLEMENTATION
+
+## 7.1 Development Kits
+
+The project currently identifies two development kits:
+
+| Kit | Intended Project Role |
+|---|---|
+| Tiny Toony RTS Kit | Candidate environment, terrain, and world-building framework. |
+| Moore's RPG Template | Candidate RPG gameplay and character-system framework. |
+
+The exact division of functionality between the two kits must be established after inspecting their available features.
+
+## 7.2 Integration Requirements
+
+The development process must establish:
+
+- Compatibility between both kits.
+- Shared world and level structure.
+- Player controller compatibility.
+- Camera compatibility with the top-down perspective.
+- Character and enemy integration.
+- Navigation and collision compatibility.
+- Interaction between terrain, water, and cave systems.
+- Persistence of world changes and gameplay state.
+
+Existing functionality should be reused wherever possible rather than unnecessarily recreated.
+
+# 8. WORLD CONTENT INVENTORY
+
+The initial content inventory is:
+
+| Category | Quantity |
+|---|---:|
+| Civilizations | 4 |
+| Settlements | 8 listed entries |
+| Albion POIs | 10 |
+| Pictland POIs | 8 |
+| Gaetland POIs | 8 |
+| Ivernia POIs | 8 |
+| Cross-regional POIs | 10 |
+| Regional enemy types | 8 |
+
+The two Forgotten Battlefields are separate entries in different geographical classifications and should be reviewed during placement.
+
+# 9. UNRESOLVED DESIGN REQUIREMENTS
+
+The following decisions must be made before detailed implementation.
+
+1. **World topology:** How are the four separate continents positioned relative to one another, and what sea routes or other connections exist between them?
+2. **World scale:** What are the approximate dimensions of the complete world and individual civilizations?
+3. **Camera:** What are the camera angle, zoom limits, and movement restrictions?
+4. **Water traversal:** Which swimming, diving, and underwater interaction mechanics are required?
+5. **Caves:** Are caves individual levels, connected interiors, or procedurally connected spaces?
+6. **Settlements:** Are settlements fully explorable or represented as smaller environmental locations?
+7. **POI interaction:** Which POIs contain encounters, loot, quests, puzzles, or environmental storytelling?
+8. **Enemy behaviour:** What are the enemy AI, hostility, spawning, and respawning rules?
+9. **Persistence:** Which environmental and gameplay changes must survive saving and loading?
+10. **Kit integration:** Which systems are supplied by each development kit, and which require custom implementation?
+
+# 10. DEVELOPMENT PRIORITIES
+
+Suggested implementation sequence:
+
+**Phase 1 – Foundation**
+- Inspect both development kits.
+- Establish compatibility.
+- Configure the top-down camera.
+- Establish the editable world structure.
+
+**Phase 2 – World Layout**
+- Create the four civilization regions.
+- Establish geographical boundaries.
+- Place settlements.
+- Implement roads and regional connections.
+
+**Phase 3 – Environmental Systems**
+- Create terrain and vegetation.
+- Implement rivers, lakes, and coastlines.
+- Establish caves and underground spaces.
+- Implement water traversal and diving.
+
+**Phase 4 – World Content**
+- Place regional POIs.
+- Populate locations with environmental details.
+- Establish enemy distribution.
+- Add geographical exploration landmarks.
+
+**Phase 5 – Functional Integration**
+- Implement interactions.
+- Connect caves and underwater locations.
+- Integrate enemy AI.
+- Implement world persistence.
+- Test world editing and traversal.
+
+---
+
+**END OF DOCUMENT**
