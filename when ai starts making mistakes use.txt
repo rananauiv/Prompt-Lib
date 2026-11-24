@@ -1,0 +1,5 @@
+when ai starts making mistakes use this 
+
+0.solve it
+1.make a table of everything that could go wrong
+2.the and / joint of it is going to make a resultant vector,which is the answer
